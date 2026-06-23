@@ -1,113 +1,95 @@
-# 📊 Comparing Classifiers for Bank Marketing Campaigns
 
-### KNN • Logistic Regression • Decision Trees • Support Vector Machines (SVM)
+# Additional README Sections for Portfolio Version
 
-This project is part of **Module 17** of the **Berkeley Professional Certificate in Machine Learning and Artificial Intelligence**.
+## 📊 Exploratory Data Analysis (EDA)
 
-The objective is to evaluate and compare the performance of four supervised learning algorithms—**K-Nearest Neighbors (KNN), Logistic Regression, Decision Trees, and Support Vector Machines (SVM)** using the Bank Marketing dataset. The models are trained to predict whether a client will subscribe to a term deposit following a telephone marketing campaign.
+### Target Distribution
 
-The project follows a structured machine learning workflow including **data exploration, preprocessing, feature engineering, model training, hyperparameter tuning, and performance evaluation** using metrics such as Accuracy, Precision, Recall, F1-score, ROC-AUC, and training time.
+The dataset is highly imbalanced.
 
-## 📂 Dataset Description
+| Class | Percentage |
+|---------|---------:|
+| No Subscription | ~88% |
+| Subscription | ~12% |
 
-The data is related to direct marketing campaigns conducted by a Portuguese banking institution. The marketing campaigns were based on telephone calls. In many cases, multiple contacts with the same client were required to determine whether the client would subscribe to a bank term deposit.
+This imbalance makes Accuracy alone insufficient for model evaluation. Therefore, Precision, Recall, F1-score, and ROC-AUC were used as primary performance metrics.
 
-The dataset used in this project is **`bank-full.csv`**, which contains all observations ordered chronologically from **May 2008 to November 2010**.
+### Key Observations
 
-### 🎯 Objective
+- Clients contacted for a longer duration were more likely to subscribe.
+- Previous successful marketing outcomes (`poutcome = success`) strongly correlated with positive responses.
+- Customers without personal loans showed higher subscription rates.
+- Age and account balance demonstrated moderate predictive power.
 
-The classification task is to predict whether a client will subscribe to a term deposit (**target variable `y`**).
+## 🤖 Models Evaluated
 
-### Dataset Characteristics
+### K-Nearest Neighbors (KNN)
+Advantages:
+- Simple and intuitive.
+- No training phase.
 
-| Property             | Value                           |
-| -------------------- | ------------------------------- |
-| Number of Instances  | 45,211 (`bank-full.csv`)        |
-| Number of Attributes | 16 features + 1 target variable |
-| Missing Values       | None                            |
+Disadvantages:
+- Computationally expensive during prediction.
+- Sensitive to feature scaling.
 
----
+### Logistic Regression
+Advantages:
+- Fast training and prediction.
+- Interpretable coefficients.
+- Strong baseline model.
 
-## Feature Groups
+### Decision Tree
+Advantages:
+- Easy to interpret.
+- Captures nonlinear relationships.
 
-| Group                                           | Features                                                      |
-| ----------------------------------------------- | ------------------------------------------------------------- |
-| **Client Demographics & Financial Information** | age, job, marital, education, default, balance, housing, loan |
-| **Current Campaign Contact Information**        | contact, day, month, duration                                 |
-| **Previous Campaign History**                   | campaign, pdays, previous, poutcome                           |
-| **Target Variable**                             | y                                                             |
+Disadvantages:
+- Prone to overfitting.
 
----
+### Support Vector Machine (SVM)
+Advantages:
+- Strong classification performance.
+- Excellent class separation.
 
-## Feature Description
+Disadvantages:
+- Computationally expensive on large datasets.
 
-| #  | Feature   | Type            | Description                                                                           | Possible Values                                                                                                                      |
-| -- | --------- | --------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------ |
-| 1  | age       | Numeric         | Age of the client                                                                     | N/A                                                                                                                                  |
-| 2  | job       | Categorical     | Type of job                                                                           | admin., unknown, unemployed, management, housemaid, entrepreneur, student, blue-collar, self-employed, retired, technician, services |
-| 3  | marital   | Categorical     | Marital status                                                                        | married, divorced (includes widowed), single                                                                                         |
-| 4  | education | Categorical     | Education level                                                                       | unknown, secondary, primary, tertiary                                                                                                |
-| 5  | default   | Binary          | Has credit in default?                                                                | yes, no                                                                                                                              |
-| 6  | balance   | Numeric         | Average yearly balance (EUR)                                                          | N/A                                                                                                                                  |
-| 7  | housing   | Binary          | Has a housing loan?                                                                   | yes, no                                                                                                                              |
-| 8  | loan      | Binary          | Has a personal loan?                                                                  | yes, no                                                                                                                              |
-| 9  | contact   | Categorical     | Communication type used for the last contact                                          | unknown, telephone, cellular                                                                                                         |
-| 10 | day       | Numeric         | Day of the month of the last contact                                                  | 1–31                                                                                                                                 |
-| 11 | month     | Categorical     | Month of the last contact                                                             | jan, feb, mar, apr, may, jun, jul, aug, sep, oct, nov, dec                                                                           |
-| 12 | duration  | Numeric         | Duration of the last contact (seconds)                                                | N/A                                                                                                                                  |
-| 13 | campaign  | Numeric         | Number of contacts performed during the current campaign (including the last contact) | N/A                                                                                                                                  |
-| 14 | pdays     | Numeric         | Days since the client was last contacted in a previous campaign                       | -1 = client was not previously contacted                                                                                             |
-| 15 | previous  | Numeric         | Number of contacts before the current campaign                                        | N/A                                                                                                                                  |
-| 16 | poutcome  | Categorical     | Outcome of the previous marketing campaign                                            | unknown, other, failure, success                                                                                                     |
-| 17 | y         | Binary (Target) | Has the client subscribed to a term deposit?                                          | yes, no                                                                                                                              |
----
+## 🔧 Hyperparameter Tuning
 
-## 🛠️ Data Preparation and Feature Engineering
+GridSearchCV was used to identify optimal hyperparameters.
 
-The following preprocessing steps significantly improved model quality.
+## 📈 Evaluation Metrics
 
-### Data Cleaning
+- Accuracy
+- Precision
+- Recall
+- F1 Score
+- ROC-AUC
 
+## 📈 Business Impact
 
-### Feature Engineering
+For a marketing campaign, Recall is particularly important because missing a potential subscriber may result in lost revenue opportunities.
 
+SVM achieved the highest Recall (0.8790), while Logistic Regression delivered similar predictive performance with significantly lower computational cost.
 
----
+## 🔮 Future Work
 
-## 🎯 Problem Statement
----
+- Gradient Boosting
+- XGBoost
+- LightGBM
+- CatBoost
+- SMOTE
+- Feature Selection
+- Threshold Optimization
 
-## 📊 Key Results
+## 🏆 Final Recommendation
 
----
+Recommended Model: Logistic Regression
 
-## ✅ Conclusion
-
----
-
-## 🚀 How to Run
-
-```bash
-git clone https://github.com/Rom4ik78/practical_app3.git
-cd practical_app3
-pip install -r requirements.txt
-jupyter notebook prompt_III.ipynb
-```
-
----
-
-## 📎 Project Structure
-
-```text
-├── data/
-├── prompt_III.ipynb
-├── README.md
-└── requirements.txt
-```
-
----
-
-## 📬 Author
-
-**Roman Andreev**  
-📧 roman.andreev@me.com
+Reasons:
+1. Highest Accuracy
+2. Strong ROC-AUC
+3. Competitive Recall
+4. Fast training and prediction
+5. High interpretability
+6. Easier deployment and maintenance
