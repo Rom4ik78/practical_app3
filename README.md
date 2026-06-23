@@ -1,7 +1,5 @@
 
-# 📊 Comparing Classifiers for Bank Marketing Campaigns
-
-### KNN • Logistic Regression • Decision Trees • Support Vector Machines (SVM)
+## 📊 Comparing Classifiers for Bank Marketing Campaigns
 
 This project is part of the Berkeley Professional Certificate in Machine Learning and Artificial Intelligence.
 
@@ -14,11 +12,17 @@ This is a binary classification problem where:
 - **yes** = client subscribes to a term deposit
 - **no** = client does not subscribe
 
-Because the dataset is imbalanced, evaluation focuses not only on Accuracy but also on Precision, Recall, F1-score, and ROC-AUC.
-
 ---
 
 ## 📂 Dataset
+
+The dataset was obtained from the UCI Machine Learning Repository:
+
+https://archive.ics.uci.edu/ml/datasets/bank+marketing
+
+The data contains information collected from direct marketing campaigns conducted by a Portuguese banking institution between May 2008 and November 2010.
+
+Dataset Characteristics
 
 - 45,211 observations
 - 16 input features
@@ -34,6 +38,19 @@ Features include:
 
 ---
 
+## 📊 Exploratory Data Analysis
+
+Key observations:
+
+- Longer call duration strongly correlates with successful subscriptions.
+- Previous successful campaigns significantly increase conversion probability.
+- Clients without personal loans subscribe more often.
+- Customer age and account balance provide moderate predictive power.
+
+The dataset is imbalanced, evaluation focuses not only on Accuracy but also on Precision, Recall, F1-score, and ROC-AUC.
+
+---
+
 ## 🛠️ Data Preparation
 
 ### Data Cleaning
@@ -45,23 +62,60 @@ Features include:
 
 ### Feature Engineering
 
+Several engineered features were created to improve predictive performance.
+
+**previously_contacted**
+
+Binary indicator showing whether a customer had participated in a previous marketing campaign:
+- 1 if pdays != -1
+- 0 otherwise
+
+**balance_log**
+
+Signed logarithmic transformation of account balance:
+
+sign(balance) * log1p(abs(balance))
+
+Benefits:
+
+Reduces skewness
+Handles extreme values
+Preserves sign information
+
+**positive_balance**
+
+Binary indicator:
+
+1 if balance > 0
+0 otherwise
+
+**debt_count**
+
+Total number of active loans.
+
+Values:
+
+0 = no loans
+1 = housing loan OR personal loan
+2 = both loans
+
+**age_group**
+
+Age Range	Group
+0–25	young
+26–35	adult
+36–50	middle
+51–65	senior
+66+	retired
+
+This feature captures nonlinear age-related behavior.
+
+### Preprocessing 
+
 - One-Hot Encoding for categorical variables.
 - StandardScaler for numerical variables.
 - Scikit-Learn Pipelines used to avoid data leakage.
 - Stratified 5-fold cross validation.
-
----
-
-## 📊 Exploratory Data Analysis
-
-Key observations:
-
-- Longer call duration strongly correlates with successful subscriptions.
-- Previous successful campaigns significantly increase conversion probability.
-- Clients without personal loans subscribe more often.
-- Customer age and account balance provide moderate predictive power.
-
-The dataset is imbalanced, making ROC-AUC, Recall, and F1-score particularly important.
 
 ---
 
@@ -229,20 +283,8 @@ For production deployment and business decision-making, Logistic Regression prov
 
 ---
 
-## 🔮 Future Work
-
-Potential improvements:
-
-- XGBoost
-- LightGBM
-- CatBoost
-- SMOTE for class balancing
-- Feature selection methods
-- Threshold optimization
-- Cost-sensitive learning
-
----
-
 ## 📬 Author
 
 Roman Andreev
+Applied Machine Learning Student
+Berkeley Professional Certificate in ML/AI
