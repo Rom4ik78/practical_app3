@@ -1,7 +1,8 @@
 
-## 📊 Comparing Classifiers for Bank Marketing Campaigns
+# 📊 Comparing Classifiers for Bank Marketing Campaigns
 
 This project is part of the Berkeley Professional Certificate in Machine Learning and Artificial Intelligence.
+
 
 ## 🎯 Business Objective
 
@@ -65,16 +66,12 @@ The dataset is imbalanced, evaluation focuses not only on Accuracy but also on P
 Several engineered features were created to improve predictive performance.
 
 **previously_contacted**
-
 Binary indicator showing whether a customer had participated in a previous marketing campaign:
 - 1 if pdays != -1
 - 0 otherwise
 
 **balance_log**
-
-Signed logarithmic transformation of account balance:
-
-sign(balance) * log1p(abs(balance))
+Signed logarithmic transformation of account balance: sign(balance) * log1p(abs(balance))
 
 Benefits:
 
@@ -83,14 +80,12 @@ Handles extreme values
 Preserves sign information
 
 **positive_balance**
-
 Binary indicator:
 
 1 if balance > 0
 0 otherwise
 
 **debt_count**
-
 Total number of active loans.
 
 Values:
@@ -100,7 +95,6 @@ Values:
 2 = both loans
 
 **age_group**
-
 Age Range	Group
 0–25	young
 26–35	adult
