@@ -247,12 +247,12 @@ In this marketing campaign, Recall is particularly important because failing to 
 
 However, model selection should also consider overall predictive performance, computational efficiency, and ease of deployment. Logistic Regression demonstrated:
 
-Higher Accuracy (0.8498 vs. 0.8402)
-Comparable F1-Score (0.5617 vs. 0.5628)
-Strong ROC-AUC (0.9087 vs. 0.9250)
-Significantly faster training (8.5s vs. 72.9s)
-Faster predictions (0.014s vs. 3.93s)
-Greater interpretability, allowing business stakeholders to understand the influence of individual features
+- Higher Accuracy (0.8498 vs. 0.8402)
+- Comparable F1-Score (0.5617 vs. 0.5628)
+- Strong ROC-AUC (0.9087 vs. 0.9250)
+- Significantly faster training (8.5s vs. 72.9s)
+- Faster predictions (0.014s vs. 3.93s)
+- Greater interpretability, allowing business stakeholders to understand the influence of individual features
 
 ### Final Recommendation
 
