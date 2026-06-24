@@ -243,42 +243,32 @@ Measures the model's ability to separate subscribers from non-subscribers across
 
 ## 📈 Business Interpretation
 
-In a marketing campaign, Recall is especially important because failing to identify a potential subscriber results in a missed sales opportunity.
+In this marketing campaign, Recall is particularly important because failing to identify a potential subscriber results in a missed sales opportunity. From this perspective, the SVM model performed best, correctly identifying approximately 88% of actual subscribers, compared to 82% for Logistic Regression.
 
-The SVM model identified nearly 88% of all potential subscribers.
+However, model selection should also consider overall predictive performance, computational efficiency, and ease of deployment. Logistic Regression demonstrated:
 
-However, Logistic Regression achieved:
+Higher Accuracy (0.8498 vs. 0.8402)
+Comparable F1-Score (0.5617 vs. 0.5628)
+Strong ROC-AUC (0.9087 vs. 0.9250)
+Significantly faster training (8.5s vs. 72.9s)
+Faster predictions (0.014s vs. 3.93s)
+Greater interpretability, allowing business stakeholders to understand the influence of individual features
 
-- Higher Accuracy
-- Similar F1-score
-- Strong ROC-AUC
-- Nearly 9x faster training time
-- Faster predictions
-- Easier interpretability
+### Final Recommendation
 
----
+While SVM achieved the highest Recall and ROC-AUC, Logistic Regression delivered comparable overall classification performance with substantially lower computational cost and greater interpretability.
 
-## 🏆 Final Recommendation
+For organizations where maximizing subscriber detection is the primary objective, SVM may be preferred because of its higher Recall. However, for production deployment, where scalability, speed, explainability, and maintenance are important considerations, Logistic Regression provides a strong balance between predictive performance and operational efficiency.
 
-### Recommended Model: Logistic Regression
-
-Although SVM produced the best ROC-AUC and Recall, Logistic Regression delivered nearly identical overall performance while requiring substantially fewer computational resources.
-
-Reasons:
-
-1. Highest Accuracy (0.8498)
-2. Strong ROC-AUC (0.9087)
-3. Competitive Recall (0.8223)
-4. Fast training and inference
-5. Easier deployment
-6. Better interpretability
-
-For production deployment and business decision-making, Logistic Regression provides the best balance between predictive performance and operational efficiency.
+Therefore, Logistic Regression is selected as the final model for deployment, while SVM remains a valuable alternative when Recall is prioritized above all other metrics.
 
 ---
 
 ## 📬 Author
 
-Roman Andreev
-Applied Machine Learning Student
-Berkeley Professional Certificate in ML/AI
+**Roman Andreev**
+
+*Applied Machine Learning Student*
+
+🎓 *UC Berkeley Professional Certificate in Machine Learning & Artificial Intelligence*
+
