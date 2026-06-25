@@ -157,19 +157,15 @@ Disadvantages:
 ### Logistic Regression
 
 Best Parameters:
-
 - C = 0.1
 - class_weight = balanced
 - l1_ratio = 1
 
-Best CV ROC-AUC:
-
-0.9122
+Best CV ROC-AUC: 0.9122
 
 ### Decision Tree
 
 Best Parameters:
-
 - criterion = entropy
 - max_depth = 20
 - min_samples_leaf = 5
@@ -177,34 +173,26 @@ Best Parameters:
 - class_weight = balanced
 - ccp_alpha = 0.001
 
-Best CV ROC-AUC:
-
-0.9099
+Best CV ROC-AUC: 0.9099
 
 ### KNN
 
 Best Parameters:
-
 - n_neighbors = 31
 - p = 2
 - weights = distance
 
-Best CV ROC-AUC:
-
-0.8928
+Best CV ROC-AUC: 0.8928
 
 ### SVM
 
 Best Parameters:
-
 - kernel = rbf
 - C = 10
 - gamma = 0.01
 - class_weight = balanced
 
-Best CV ROC-AUC:
-
-0.9258
+Best CV ROC-AUC: 0.9258
 
 ---
 
@@ -236,8 +224,8 @@ Measures the model's ability to separate subscribers from non-subscribers across
 
 | Model | Accuracy | Precision | Recall | F1 | ROC-AUC | Fit Time (s) | Predict Time (s) |
 |---------|---------:|---------:|---------:|---------:|---------:|---------:|---------:|
-| Logistic Regression | 0.8498 | 0.4265 | 0.8223 | 0.5617 | 0.9087 | 8.50 | 0.014 |
-| SVM | 0.8402 | 0.4139 | 0.8790 | 0.5628 | 0.9250 | 72.87 | 3.93 |
+| Logistic Regression | 0.8498 | 0.4265 | 0.8223 | 0.5617 | 0.9087 | 8.48 | 0.01 |
+| SVM | 0.8402 | 0.4139 | 0.8790 | 0.5628 | 0.9250 | 69.94 | 3.78 |
 
 ---
 
@@ -250,8 +238,8 @@ However, model selection should also consider overall predictive performance, co
 - Higher Accuracy (0.8498 vs. 0.8402)
 - Comparable F1-Score (0.5617 vs. 0.5628)
 - Strong ROC-AUC (0.9087 vs. 0.9250)
-- Significantly faster training (8.5s vs. 72.9s)
-- Faster predictions (0.014s vs. 3.93s)
+- Significantly faster training (8.5s vs. 69.9s)
+- Faster predictions (0.01s vs. 3.78s)
 - Greater interpretability, allowing business stakeholders to understand the influence of individual features
 
 ### Final Recommendation
