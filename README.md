@@ -1,4 +1,3 @@
-
 # 📊 Comparing Classifiers for Bank Marketing Campaigns
 
 This project is part of the Berkeley Professional Certificate in Machine Learning and Artificial Intelligence.
@@ -74,10 +73,9 @@ Binary indicator showing whether a customer had participated in a previous marke
 Signed logarithmic transformation of account balance: sign(balance) * log1p(abs(balance))
 
 Benefits:
-
-Reduces skewness
-Handles extreme values
-Preserves sign information
+- Reduces skewness
+- Handles extreme values
+- Preserves sign information
 
 **positive_balance**
 Binary indicator:
@@ -88,11 +86,7 @@ Binary indicator:
 **debt_count**
 Total number of active loans.
 
-Values:
-
-0 = no loans
-1 = housing loan OR personal loan
-2 = both loans
+Values: 0 = no loans, 1 = housing loan OR personal loan, 2 = both loans.
 
 **age_group**
 Age Range	Group
@@ -259,4 +253,3 @@ Therefore, Logistic Regression is selected as the final model for deployment, wh
 *Applied Machine Learning Student*
 
 🎓 *UC Berkeley Professional Certificate in Machine Learning & Artificial Intelligence*
-
